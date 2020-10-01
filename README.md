@@ -75,24 +75,24 @@ request.request_body (
 try:
     # Call API with your client and get a response for your call
     response = client.execute(request)
-    print 'Order With Complete Payload:'
-    print 'Status Code:', response.status_code
-    print 'Status:', response.result.status
-    print 'Order ID:', response.result.id
-    print 'Intent:', response.result.intent
-    print 'Links:'
+    print('Order With Complete Payload:')
+    print('Status Code:', response.status_code)
+    print('Status:', response.result.status)
+    print('Order ID:', response.result.id)
+    print('Intent:', response.result.intent)
+    print('Links:'
     for link in response.result.links:
         print('\t{}: {}\tCall Type: {}'.format(link.rel, link.href, link.method))
-        print 'Total Amount: {} {}'.format(response.result.purchase_units[0].amount.currency_code,
-        response.result.purchase_units[0].amount.value)
+        print('Total Amount: {} {}'.format(response.result.purchase_units[0].amount.currency_code,
+        response.result.purchase_units[0].amount.value))
         # If call returns body in response, you can get the deserialized version from the result attribute of the response
         order = response.result
         print order
 except IOError as ioe:
-    print ioe
+    print(ioe)
     if isinstance(ioe, HttpError):
         # Something went wrong server-side
-        print ioe.status_code
+        print(ioe.status_code)
 ```
 
 #### Example Output:
@@ -136,12 +136,12 @@ try:
 except IOError as ioe:
     if isinstance(ioe, HttpError):
         # Something went wrong server-side
-        print ioe.status_code
-        print ioe.headers
-	print ioe
+        print(ioe.status_code)
+        print(ioe.headers)
+	print(ioe)
     else:
         # Something went wrong client side
-        print ioe
+        print(ioe)
 ```
 
 #### Example Output:
